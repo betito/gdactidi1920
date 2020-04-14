@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+body {
+    margin-top: 200px;
+
+}
+
+div.container {
+    box-shadow: 1px 1px 3px rgba(0,0,0,.4);
+    border: 1px solid #cccccc;
+}
+
+form#login {
+    width: 300px;
+
+   padding: 0px 0px 10px 0px;
+
+
+    margin: auto;
+    display: block;
+
+    border: 1px solid rgba(0,0,0, .4);
+    box-shadow: 1px 1px 4px rgba(0,0,0,.4);
+    border-radius: 4px;
+
+    text-align: center;
+}
+
+form#login h3 {
+    display: block;
+    margin-top: 0;
+
+    padding: 10px 0 10px 0;
+
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,.4);
+    border-bottom: 2px solid rgba(0,0,0,.3);
+    border-radius: 3px 3px 0 0;
+
+    background-image: -webkit-linear-gradient( top, #0c3068, #061937 130%);
+    background-image: -moz-linear-gradient( top, #0c3068, #061937 130%);
+    background-image: -ms-linear-gradient( top, #0c3068, #061937 130%);
+    background-image: -o-linear-gradient( top, #0c3068, #061937 130%);
+    background-image: linear-gradient( top, #0c3068, #061937 130%);
+}
+
+
+
+form#login label {
+    width: 180px;
+    font-size: 12pt;
+    font-weight: bold;
+
+    text-align: left;
+    padding-left: 4px;
+
+}
+
+form#login input.caixa {
+
+    width: 100px;
+    margin-right: 10px;
+    margin-bottom: 4px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 1px 2px 1px rgba(155, 155, 155, 0.3);
+    font-size: 10pt;
+}
+
+.but {
+
+    background-color: #ccc;
+    color: #444;
+    padding: 10px 20px;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    border: 0px;
+}
+
+.but:hover {
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.15));
+    cursor: pointer;
+}
+
+.but:active {
+    top: 5px;
+    position: relative;
+}
+
+
+/*-------BOTAO PADRAO-----*/
+.but-primary {
+    color: #fff;
+    background-color: #0068B4;
+}
+
+/*BOTAO DE ERRO*/
+.but-error {
+    color: #fff;
+    background-color: #CC0000;
+}

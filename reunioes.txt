@@ -1,0 +1,15 @@
+tela de cadastro dos funcionarios
+
+total de funcionarios: 600 --> pegar do cardinal
+
+RH precisa ajustar os ativos e não-ativos
+
+- Alem do GDACT tem tbm, sistema da COPES e as contratacoes.
+
+
+
+quem escolheu o sistema do ON e pq ?
+
+conersar com o alexssandro e a carol sobre o processo que eles usam no ON
+Agendar reuniao com ele e os demais para terça-feira a tarde 15:30 (RJ).. 14:30 (MAO)
+31 as 9:30 reuniao sobre status

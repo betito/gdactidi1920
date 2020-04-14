@@ -1,0 +1,255 @@
+@charset "UTF-8";
+
+body {
+    background-color: #ccc;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+header#cabecalho {
+    position:relative;
+    padding: 5px;
+    /*background-color: #061937;*/
+    background-image: -webkit-linear-gradient( top, #0c3068, #061937 130%);
+    background-image: -moz-linear-gradient( top, #0c3068, #061937 130%);
+    background-image: -ms-linear-gradient( top, #0c3068, #061937 130%);
+    background-image: -o-linear-gradient( top, #0c3068, #061937 130%);
+    background-image: linear-gradient( top, #0c3068, #061937 130%);
+
+}
+
+h3.title {
+    float: right;
+    text-align: center;
+    color: #ffffff;
+
+
+    margin-right: 10px;
+
+    text-shadow: 1px 1px 4px rgba(0,0,0,.4);
+}
+
+footer {
+
+    text-align: center;
+    color: #000;
+    padding: 5px;
+
+    background-color: #ffffff;
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.3));
+}
+
+footer a {
+    text-decoration: none;
+    color: #000;
+}
+
+a.link {
+    text-decoration: none;
+    color: #000000;
+}
+
+a.link:hover {
+    color: #1252ba;
+
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+
+}
+
+.center {
+    margin-left: auto; !important
+    margin-right: auto; !important
+    display: block; !important
+
+    text-align: center; !important
+}
+
+.but {
+
+
+    background-color: #ccc;
+    color: #444;
+    padding: 10px 20px;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    border: 0px;
+}
+
+.but:hover {
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.15));
+    cursor: pointer;
+}
+
+.but:active {
+    top: 5px;
+    position: relative;
+}
+
+
+/*-------BOTAO PADRAO-----*/
+.but-primary {
+    color: #fff;
+    background-color: #0068B4;
+}
+
+/*BOTAO DE ERRO*/
+.but-error {
+    color: #fff;
+    background-color: #CC0000;
+}
+
+/*-------------------------------------*/
+
+.container {
+    position: relative;
+    width: 1024px;
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+    background-color: #fff;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.4);
+
+}
+
+div#conteudo {
+    position: relative;
+    overflow: scroll;
+}
+
+h1.nome {
+    text-align: left;
+
+    color: #fff;
+    background-color: #3371ac;
+
+    position: relative;
+
+    /*----alterar o width de acordo com o tamanho do nome------*/
+    width: 35%;
+    padding: 5px;
+    padding-left: 25px;
+
+    left: -20px;
+
+    text-shadow: 1px 1px 4px rgba(0,0,0,.4);
+    box-shadow: 1px 1px 3px rgba(0,0,0,.5);
+
+    border-radius: 2px;
+}
+
+h1.nome::before {
+    border: 11px solid ;
+    border-color: transparent #244f78  #244f78 transparent ;
+    content: '';
+    left: -1px;
+    position: absolute;
+    top: -21px;
+}
+
+ul#alerta {
+
+    text-align: justify;
+    width: 480px;
+    list-style: none;
+}
+
+ul#alerta li {
+    padding: 3px;
+}
+
+ul#alerta li::before {
+    content: url(../img/seta_esq.gif);
+}
+
+ul#alerta li a {
+    text-decoration: none;
+    color: #3371ac;
+}
+
+ul#alerta li a:hover {
+    color: #ff4d57;
+}
+
+span.botao {
+    margin: auto;
+    display: block;
+    text-align: center;
+
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,.5);
+
+    width: 100px;
+
+    color: #ffffff;
+    border: 1px solid #000000;
+    padding: 5px;
+    background-image: -webkit-linear-gradient( top, #103f88, #0c3473 130%);
+    background-image: -moz-linear-gradient( top, #103f88, #0c3473 130%);
+    background-image: -ms-linear-gradient( top, #103f88, #0c3473 130%);
+    background-image: -o-linear-gradient( top, #103f88, #0c3473 130%);
+    background-image: linear-gradient( top, #103f88, #0c3473 130%);
+}
+
+
+
+div.mostra_grupos {
+    width: 800px;
+    margin: auto;
+    display: block;
+    text-align: justify;
+}
+
+div.mostra_grupos a {
+    text-decoration: none;
+    color: #000000;
+}
+
+div.mostra_grupos a:hover{
+    color: #0068B4;
+}
+
+span.topic {
+    margin-left: 2px;
+    font-size: 17pt;
+    margin-bottom: 0;
+}
+
+span.topic::before {
+    content: url(../img/seta_esq.gif);
+}
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+
+.warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+  
+.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    
+}
+
+.redc {
+    color: red;
+}
+
+.greenc {
+    color: green;
+}

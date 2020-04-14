@@ -1,0 +1,96 @@
+<?php 
+include_once './internal/dbconnection.php';
+// Conecta com o Banco de Dados
+$conexao = connect();
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>GDACT</title>
+
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/cadastrointra-form.css"/>
+    <link rel="stylesheet" href="css/menu.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="css/style_login.css"/>
+ <script>
+        function showAlert(type,message) {
+            $('#alert').addClass('alert-' + type).html( message ).fadeIn();
+            setTimeout("closeAlert()", 4000);
+        }
+
+
+
+        function closeAlert() {
+            $('#alert').fadeOut();
+        }
+    </script>
+    
+    <meta charset="UTF-8"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="container">
+    <header id="cabecalho">
+        <img id="logo" src="img/logo.png" alt="Logotipo do Observatório Nacional"/>
+
+        <h3 class="title">GDACT</h3>
+    </header>
+
+    <div class="conteudo">
+
+    <h1 class="nome" style="width: 325px;">Sistema de Avaliação</h1>
+
+
+        <br><br>
+
+        <form id="login" action="gerenciamento.php" method="post">
+
+            <h3>Seleção de Unidade de Trabalho</h3>
+
+                      <p>
+               <label for="sigla">Sigla Organizacional: </label><br><br>
+               <select name="sigla" id="sigla" required="required">
+               <option> Escolha sua unidade</option>
+               <option> COAA </option>
+               <option> COAD </option>
+               <option> COGE </option>
+               <option> DAED </option>
+               <option> DIAD </option>
+               <option> DIID </option>
+               <option> DIR  </option>
+               <option> DPPG </option>
+               <option> DSHO </option>
+               <option> DTIN </option>
+               <option> OMT </option>
+               <option> OMV </option>
+               <option> SAL </option>
+               <option> SEF </option>
+               <option> SMP </option>
+               <option> SRH </option>
+               </select>
+
+           </p>
+
+          
+
+            <input onsubmit="showAlert();" onclick="showAlert('error','Login e Senha Inválidos!')"  style="border-radius: 4px; box-shadow: 1px 1px 4px rgba(0,0,0,.5);" class="but but-primary center" type="submit" value="CONFIRMAR"/>
+        </form>
+       
+
+    </div>
+
+    <br><br><br>
+
+    <footer id="rodape">
+        <strong>
+            Copyright&copy; - <a class="link" href="#">DTIN/ON</a>
+            <?php echo $nome; ?>
+        </strong>
+        <div style="float: right; margin-right: 40px;">
+            <a class="link" href="index.php" style="text-transform: uppercase; color: red; text-shadow: 1px 1px 3px rgba(0,0,0,.3);">Sair</a>
+        </div>
+    </footer>
+</div>
+</body>
+
