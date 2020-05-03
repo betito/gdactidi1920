@@ -64,7 +64,7 @@ $conexao = connect();
     
         // query SQL
 //        mysql_set_charset('UTF8', $conexao);
-        $strSQL = "SELECT * FROM avaliado order by nome asc" ;
+        $strSQL = "SELECT * FROM avaliado where situacao not like 'impedido' order by nome asc " ;
     
         // Executa a query (o recordset $rs contém o resultado da query)
         $rs = mysql_query($strSQL, $conexao);

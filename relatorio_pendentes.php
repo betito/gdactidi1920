@@ -119,13 +119,13 @@ $conexao = connect();
 
                 if (cmpIgual($chefeemail, $res2["email"])){ // quer dizer que este registro é do chefe
 
-                    echo ('caiu aqui na chefia.... <br/>');
+                    //echo ('caiu aqui na chefia.... <br/>');
 
                     // testar se fe autoavaliacao
                     $strSQL3 = "SELECT * from avaliacao where sigla like '".$res["sigla"]."' and emailaval like '".$chefeemail
                         . "' and email like '".$res2["email"]. "' and opcao like 'auto%'";
                 
-                    echo ($strSQL3);
+                    //echo ($strSQL3);
                     $rs3 = mysql_query($strSQL3, $conexao);
                     $num_rows3 = mysql_num_rows($rs3);
                 
@@ -231,7 +231,7 @@ $conexao = connect();
                     $strSQL3 = "SELECT * from avaliacao where sigla like '".$res["sigla"]."' and emailaval like '".$chefeemail
                         . "' and email like '".$res2["email"]. "' and opcao like 'chefia%'";
                 
-                    echo ($strSQL3);
+                    //echo ($strSQL3);
                     $rs3 = mysql_query($strSQL3, $conexao);
                     $num_rows3 = mysql_num_rows($rs3);
                 

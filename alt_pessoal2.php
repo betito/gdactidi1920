@@ -58,9 +58,6 @@ $conexao = connect();
         $subord= $_POST["subord"];
         $tipo= $_POST["tipo"];
 
-        
-
-
     mysql_query("SET NAMES 'utf8'");
     mysql_query("SET character_set_connection=utf8");
     mysql_query("SET character_set_client=utf8");
@@ -75,6 +72,8 @@ $conexao = connect();
     . " tipo = '$tipo', "
     . " Situacao = '$situacao' where nome = '$nome1'";
 
+    //echo ("QUERY1: ".$query1);
+    
 mysql_query($query1,$conexao);
 
 echo "<br><br><center><b>A Atualiza&ccedil;&atilde;o foi Realizada com Sucesso!</b><br><br></center><br><br>"; 

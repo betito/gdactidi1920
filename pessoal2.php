@@ -1,5 +1,7 @@
 <?php 
 include_once './internal/dbconnection.php';
+include_once './internal/utils.php';
+
 // Conecta com o Banco de Dados
 $conexao = connect();
 ?>
@@ -29,19 +31,17 @@ $conexao = connect();
 $nm = $_GET['lin'];
 
 
-  // Seleciona o Banco de Dados
-  $bd = mysql_select_db("gdact", $conexao) or die(mysql_error());
-
   mysql_set_charset('UTF8', $conexao);
   $strSQL = "SELECT * FROM avaliado WHERE nome = '$nm'";
 
   // Executa a query (o recordset $rs contém o resultado da query)
   $rs = mysql_query($strSQL, $conexao);
-  $row = mysql_fetch_array($rs);
+  $row = mysql_fetch_array ($rs);
   $num = mysql_num_rows($rs);
 
  
 
+$sit = $row["Situacao"];
 $nome = $row["nome"];
 $unid = $row["unid_org"];
 $sigla = $row["sigla_org"];
@@ -50,12 +50,12 @@ $cargo = $row["cargo"];
 $ramal = $row["ramal"];
 $email = $row["email"];
 $grupo = $row["grupo"];
-$sit = $row["Situacao"];
 $nome1 = $row["nome"];
 $subord = $row["subordinacao"];
 $tipo = $row["tipo"];
 
-
+var_dump ($row);
+mysql_close($conexao);
 ?>
 
     <div class="conteudo">
@@ -72,7 +72,7 @@ $tipo = $row["tipo"];
         
         <br>
 
-        <form id="cadastro" class="center" method="post" action="alt_pessoal2.php" enctype="multipart/form-data">
+        <form id="cadastro" class="center" method="post" action="alt_pessoal2.php" >
 
               <input type="text" name="grupo" id="grupo" size="40" value="<?php echo $grupo; ?>" style="display:none"> <br>
               <input type="text" name="nome1" id="nome1" size="40" value="<?php echo $nome1; ?>" style="display:none"> <br>
@@ -162,12 +162,25 @@ $tipo = $row["tipo"];
 
             <p>
                 <label for="nome">
-                    <strong>Sitiua&ccedil;&atilde;o do Servidor:</strong>
+                    <strong>Situa&ccedil;&atilde;o do Servidor:</strong>
                 </label>
                 <select required="" name="situacao" id="situacao">
-                    <option selected><?php echo $sit;?></option>
-                    <option>Ativo</option>
-                    <option>Impedido</option>
+                    <?php
+                        $ativo = "";
+                        $impedido = "";
+                        echo ("[".$sit."]");
+
+                        if(cmpIgual($sit, "ATIVO") == TRUE){
+                            $ativo = "selected";
+                            echo("aqui 1...");
+                        }
+                        if(cmpIgual($sit, "IMPEDIDO") == TRUE){
+                            $impedido = "selected";
+                            echo("aqui 2...");
+                        }
+                    ?>
+                    <option value="ATIVO" <?=$ativo;?>>ATIVO</option>
+                    <option value="IMPEDIDO" <?=$impedido;?>>IMPEDIDO</option>
                 </select>
                
             </p>
@@ -191,7 +204,7 @@ $tipo = $row["tipo"];
             Copyright&copy; - <a class="link" href="#">DTIN/ON </a> & COTIN/COGPE/INPA
                    </strong>
         <div style="float: right; margin-right: 40px;">
-             <a href='javascript:window.history.go(-1)' style="text-transform: uppercase; color: red; text-shadow: 1px 1px 3px rgba(0,0,0,.3);"> voltar</a></center><br><br><br>"
+             <a href='javascript:window.history.go(-1)' style="text-transform: uppercase; color: red; text-shadow: 1px 1px 3px rgba(0,0,0,.3);"> voltar</a></center><br><br><br>
         </div>
 
     </footer>
