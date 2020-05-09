@@ -57,8 +57,9 @@ if (isset($_GET["lin"])) {
 
     // query SQL
     mysql_set_charset('UTF8', $conexao);
-    $strSQL1 = "SELECT convert(grupo, UNSIGNED INTEGER) as cgrp FROM avaliado where sigla_org like '$sigla_org' 
-        and tipo not like 'Chefia Imediata' and Situacao not like 'Impedido' group by grupo order by cgrp asc";
+	$strSQL1 = "SELECT convert(grupo, UNSIGNED INTEGER) as cgrp FROM avaliado where "
+		. " sigla_org like '$sigla_org'  or subordinacao like '$sigla_org' "
+		. " and Situacao not like 'Impedido' group by grupo order by cgrp asc";
 
     // Executa a query (o recordset $rs contém o resultado da query)
     $rs1 = mysql_query($strSQL1, $conexao);
@@ -68,7 +69,9 @@ if (isset($_GET["lin"])) {
     while ($row1 = mysql_fetch_assoc($rs1)) {
         
         $grupo = $row1["cgrp"];
-        $strSQL2 = "SELECT * FROM avaliado where Situacao not like 'Impedido' and sigla_org like '$sigla_org' and grupo like '$grupo' order by nome asc";
+		$strSQL2 = "SELECT * FROM avaliado where Situacao not like 'Impedido' and (sigla_org like '$sigla_org' "
+			. " or subordinacao like '$sigla_org') "
+			. " and grupo like '$grupo' order by nome asc";
         
         $rs2 = mysql_query($strSQL2, $conexao);
         
@@ -82,7 +85,15 @@ if (isset($_GET["lin"])) {
             	<!-- <a href="tabela.php?lin=<?=$row2['nome'];?>"><?=$row2["nome"];?></a><br>  -->
             	<?=$row2['nome'];?><br>
             <?php 
+			}
+			if (cmpIgual($row2["tipo"], "chefia imediata"))
+            {
+            ?> 
+            	<!-- <a href="tabela.php?lin=<?=$row2['nome'];?>"><?=$row2["nome"];?></a><br>  -->
+            	<?=$row2['nome'];?> <i><span style="color: red;">(Chefia Imediata n@ <b><?=$row2['sigla_org'];?></b>)</span></i><br>
+            <?php 
             }
+
         }
     
     }
