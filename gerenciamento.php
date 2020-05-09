@@ -67,7 +67,7 @@ if ($senha <> $senha1) {
         <br>
 
 <?php 
-$unid = _POST["sigla"];
+$unid = $_POST["sigla"];
 
   echo '  <table border="0" align="center" width="60%">';          
         echo '<tr>';
