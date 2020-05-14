@@ -371,7 +371,7 @@ if(!$valid){
         APERTE <b>F5</b> PARA ATUALIZAR A TABELA DE PEND&Ecirc;NCIAS.</span>
 
         <br/><br/>
-        <center> <strong><font color="red">IMPORTANTE:  Encerramento em 01 de Novembro (HOJE) às 11:00.</font></strong></center>
+        <!--<center> <strong><font color="red">IMPORTANTE:  Encerramento em 01 de Novembro (HOJE) às 11:00.</font></strong></center> -->
         <br/>
 
         <div class="alert <?=$warning;?>">
