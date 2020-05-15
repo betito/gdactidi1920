@@ -66,9 +66,9 @@ $conexaometa = connectmeta();
  
 
 // check out the total of elements in that grp
-    $query1 = "SELECT count(*) as cont FROM gdact.avaliado "
+    $query1 = "SELECT count(*) as cont FROM avaliado "
         . " where grupo like '" . $grupo . "' and "
-        . " sigla_org like '".$sigla_org."'";
+        . " sigla_org like '".$sigla_org."' and Situacao like 'ATIVO'";
 
     $qry = mysql_query($query1,$conexao);
     $res = mysql_fetch_assoc($qry);
