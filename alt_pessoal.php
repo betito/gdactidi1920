@@ -52,6 +52,30 @@ $conexao = connect();
         $ramal= $_POST["ramal"];
         $email= $_POST["email"];
         $grupo= $_POST["grupo"];
+
+        $query1 = "SELECT grupo FROM avaliado "
+        . " where siape like '". $siape . "'";
+
+        $qry = mysql_query($query1,$conexao);
+        $res = mysql_fetch_assoc($qry);
+
+        if (cmpIgual($res["grupo"], $grupo) == TRUE){
+            ?>
+            <div class="alert">
+                <span style="color: red;"><b>Alter&ccedil;&atilde;o n&atilde;o foi realizada, pois</b></span> <br/>
+                Este servidor j&aacute; faz parte do Grupo: <span style="color: red;"><b><?=$grupo;?></b></span>.<br/>
+            <br/>
+
+                <a href="javascript:window.history.go(-2)">
+                    <span class="botao">
+                    VOLTAR
+                    </span>
+                </a>
+            </div>
+
+        <?php
+
+        }else{
                 
     // mysql_query("SET NAMES 'utf8'");
     // mysql_query("SET character_set_connection=utf8");
@@ -94,6 +118,7 @@ $conexao = connect();
         </div>
 
         <?php
+    
     }else{
 
 
@@ -126,6 +151,7 @@ echo "<br><br><center><b>A Atualiza&ccedil;&atilde;o foi Realizada com Sucesso!<
 
     <?php
     }
+}
     ?>
     <br><br><br>
     <footer id="rodape">
