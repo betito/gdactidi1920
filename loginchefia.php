@@ -57,13 +57,14 @@ $conexao = connect();
            if(!$conexao) die ("Erro de conexão com localhost, o seguinte erro ocorreu -> ".mysql_error());
 
            mysql_set_charset('UTF8', $conexao);
-           $bd = mysql_select_db("gdact",$conexao);
 
            $strSQL = "SELECT * FROM avaliado where nome like '$nm'";
+           echo ($strSQL);
            $rs = mysql_query($strSQL, $conexao);
            $row = mysql_fetch_array($rs);
 
            $sigla = $row["sigla_org"];
+           var_dump($row);
            
            ?>
 

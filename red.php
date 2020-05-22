@@ -31,11 +31,6 @@ $senha = $_POST['senha'];
 $senha1 = $_POST['senha1'];
 
 
-$conexao = mysql_connect("ENEREÇOBD", "LOGIN", "SENHA") or die (mysql_error ());
-
-  // Seleciona o Banco de Dados
-  $bd = mysql_select_db("gdact", $conexao) or die(mysql_error());
-
   mysql_set_charset('UTF8', $conexao);
   $strSQL = "SELECT * FROM avaliado WHERE siape = '$siape' order by nome asc";
   

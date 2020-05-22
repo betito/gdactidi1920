@@ -35,11 +35,8 @@ $conexao = connect();
         <hr style="width: 900px; margin: auto; display: block;" color="#0c3068" size="2" noshade="noshade"/>
 
 <?php 
-$conexao = mysql_connect("ENEREÇOBD", "LOGIN", "SENHA") or die (mysql_error ());
 
- $bd = mysql_select_db("gdact", $conexao) or die(mysql_error());
-
- mysql_set_charset('UTF8', $conexao);
+mysql_set_charset('UTF8', $conexao);
  
 
 

@@ -34,13 +34,8 @@ $nm = $_POST['usuario'];
 $email1 = $_POST['email'];
 $senha1 = $_POST['senha'];
 
-//  echo ("EMAIL:: $email1 <br/> SENHA :: $senha1 <br/>");
 
-  // Seleciona o Banco de Dados
-  //$bd = mysql_select_db("gdact", $conexao) or die(mysql_error());
-
-  //mysql_set_charset('UTF8', $conexao);
-  $valida = "SELECT * FROM avaliado WHERE senha = '$senha1'";
+$valida = "SELECT * FROM avaliado WHERE senha = '$senha1'";
   $strSQL = "SELECT * FROM avaliado WHERE email like '$email1%' and nome = '$nm' order by nome asc";
   $strSQL1 = "SELECT * FROM avaliado order by nome asc";
   $strSQL2 = "SELECT * FROM avaliado where lower(Situacao) not like 'impedido' order by nome asc";
@@ -1028,7 +1023,6 @@ if(!$valid){
      <?php
 
   // Seleciona o Banco de Dados
-  //$bd = mysql_select_db("gdact", $conexao) or die(mysql_error());
   $strSQL5 = "SELECT * FROM avaliado where lower(Situacao) not like 'impedido' order by nome asc";
   $strSQL6 = "SELECT * FROM avaliado where lower(Situacao) not like 'impedido' and lower(tipo) like lower('".$chefimed."%') and sigla_org like '".$siglasubord."' order by nome asc";
   $strSQL7 = "SELECT * FROM avaliado where lower(Situacao) not like 'impedido' and lower(tipo) like lower('".$chefimed."%') and sigla_org like '".$sigla."' order by nome asc";

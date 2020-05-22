@@ -46,7 +46,6 @@ $tipo1 = $_POST["tipo1"];
 $tcont = $_POST["cont"];
 
 
- //$bd = mysql_select_db("gdact", $conexao) or die(mysql_error());
 
  //mysql_set_charset('UTF8', $conexao);
  $strSQL = "SELECT * FROM avaliado WHERE nome = '$nm'";

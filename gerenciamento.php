@@ -44,7 +44,7 @@ $email = $_POST['email'];
 $senha1 = $_POST['senha'];
 
    
-$strSQL = "SELECT * FROM avaliado WHERE nome = '$nm' order by nome asc";
+$strSQL = "SELECT * FROM avaliado WHERE nome like '$nm' order by nome asc";
 
 // Executa a query (o recordset $rs contém o resultado da query)
 $rs10 = mysql_query($strSQL, $conexao);
@@ -94,6 +94,7 @@ $unid = $_POST["sigla"];
 
         $unid = $_POST["sigla"];
        
+        var_dump($unid);
    
     // query SQL
     $strSQL = "SELECT * FROM avaliado WHERE sigla_org like '$unid' or subordinacao like '$unid' order by nome asc" ;
@@ -102,7 +103,6 @@ $unid = $_POST["sigla"];
     $rs = mysql_query($strSQL, $conexao);
     $rs1 = mysql_query($strSQL, $conexao);
     $rs2 = mysql_query($strSQL, $conexao);
-
 
 
   // Loop pelo recordset $rs
@@ -134,6 +134,7 @@ echo '<th bgcolor="#abcdef">Sigla Organizacional</th>';
  
 echo '</tr>';
 
+var_dump(mysql_fetch_assoc($rs1));
         // Loop pelo recordset $rs
     while($row1 = mysql_fetch_assoc($rs1)) {
 

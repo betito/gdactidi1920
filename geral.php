@@ -23,10 +23,6 @@ $conexao = connect();
 // variáveis do avaliador
 $nm = $_GET['lin'];
 
- $conexao = mysql_connect("ENEREÇOBD", "LOGIN", "SENHA") or die (mysql_error ());
-
- $bd = mysql_select_db("gdact", $conexao) or die(mysql_error());
-
  mysql_set_charset('UTF8', $conexao);
  $strSQL = "SELECT * FROM avaliacao WHERE nome = '$nm' order by nomeaval asc";
 
