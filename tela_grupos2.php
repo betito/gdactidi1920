@@ -75,26 +75,28 @@ if (isset($_GET["lin"])) {
         
         $rs2 = mysql_query($strSQL2, $conexao);
         
-        echo '<br><span class="topic"> Grupo '.$grupo.'</span><hr/><br>';
-        
-        while ($row2 = mysql_fetch_assoc($rs2)) {
-            
-            if (cmpIgual($row2["tipo"], "servidor"))
-            {
-            ?> 
-            	<!-- <a href="tabela.php?lin=<?=$row2['nome'];?>"><?=$row2["nome"];?></a><br>  -->
-            	<?=$row2['nome'];?><br>
-            <?php 
-			}
-			if (cmpIgual($row2["tipo"], "chefia imediata"))
-            {
-            ?> 
-            	<!-- <a href="tabela.php?lin=<?=$row2['nome'];?>"><?=$row2["nome"];?></a><br>  -->
-            	<?=$row2['nome'];?> <i><span style="color: red;">(Chefia Imediata n@ <b><?=$row2['sigla_org'];?></b>)</span></i><br>
-            <?php 
-            }
+		if(mysql_num_rows($rs2) > 0){
+			echo '<br><span class="topic"> Grupo '.$grupo.'</span><hr/><br>';
+			
+			while ($row2 = mysql_fetch_assoc($rs2)) {
+				
+				if (cmpIgual($row2["tipo"], "servidor"))
+				{
+				?> 
+					<!-- <a href="tabela.php?lin=<?=$row2['nome'];?>"><?=$row2["nome"];?></a><br>  -->
+					<?=$row2['nome'];?><br>
+				<?php 
+				}
+				if (cmpIgual($row2["tipo"], "chefia imediata"))
+				{
+				?> 
+					<!-- <a href="tabela.php?lin=<?=$row2['nome'];?>"><?=$row2["nome"];?></a><br>  -->
+					<?=$row2['nome'];?> <i><span style="color: red;">(Chefia Imediata n@ <b><?=$row2['sigla_org'];?></b>)</span></i><br>
+				<?php 
+				}
 
-        }
+			}
+		}
     
     }
     ?>
