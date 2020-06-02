@@ -99,7 +99,7 @@ $conexao = connect();
 
         <?php 
    
-        echo ('aqui 1 <br/>');
+        //echo ('aqui 1 <br/>');
        $strSQL = "SELECT * FROM periodo";
        $rs = mysql_query($strSQL, $conexao);
        $row = mysql_fetch_array($rs);
@@ -113,7 +113,7 @@ $conexao = connect();
     }*/
        
        
-       echo ('aqui 2 <br/>');
+       //echo ('aqui 2 <br/>');
   ?>
 
         
@@ -129,7 +129,7 @@ $conexao = connect();
        			for ($i = 0; $i < count($list); $i++){
    			    ?>
        			    <!-- <li><a href="listall.php?sigla=<?=$list[$i]["attrres"]?>"><strong>| <?=$list[$i]["attrres"]?> </strong></a></li>  -->
-       			   <a class="myButton" href="listall.php?sigla=<?=$list[$i]["attrres"]?>"><?=$list[$i]["attrres"]?></a>
+       			   <a class="myButton" href="tela_grupos2.php?lin=<?=$list[$i]["attrres"]?>"><?=$list[$i]["attrres"]?></a>
    			   <?php
        			}
        			?>

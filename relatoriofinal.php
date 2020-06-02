@@ -90,7 +90,7 @@ echo '</table>';
         <br>
 
 
-        <a href="index.php">
+        <a href="painelrh.php">
             <span class="botao">
                 VOLTAR
             </span>

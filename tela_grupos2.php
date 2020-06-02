@@ -36,8 +36,8 @@ $conexao = connect();
 
 			<h2 class="center" style="text-transform: uppercase;">Área de
 				Visualiza&ccedil;&atilde;o de dados de servidores para Avalia&ccedil;&atilde;o GDACT</h2>
-			<blockquote style="text-align: center; font-style: italic;">Clique em
-				seu nome para acessar seu grupo</blockquote>
+			<!--<blockquote style="text-align: center; font-style: italic;">Clique em
+				seu nome para acessar seu grupo</blockquote>-->
 
 
 			<hr style="width: 300px; margin: auto; display: block;"
