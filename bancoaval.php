@@ -123,7 +123,7 @@ if ($num_rows <> 0) {
     $query = "INSERT INTO avaliacao (periodo, opcao, unidade, sigla, nome, siape, cargo, ramal, email, nomeaval, siapeaval, cargoaval, ramalaval, emailaval, 1a, 1b, 1c, 1d, 1e, 2a, 2b, 2c, 3a, 3b, 3c, 3d, 3e, 4a, 4b, 4c, 4d, 4e, 4f, 5a, 5b, 5c, 5d, 5e, total, perc, ciclo)
     VALUES ('$periodo', '$opcao', '$unid', '$sigla', '$nome', '$siape', '$cargo', '$ramal', '$email', '$nome1','$siape1','$cargo1','$ramal1','$email1','$a1','$a2','$a3','$a4','$a5','$b1','$b2','$b3','$c1','$c2','$c3','$c4','$c5','$d1','$d2','$d3','$d4','$d5','$d6','$e1', '$e2', '$e3', '$e4', '$e5','$total', '$perc', '$ciclo')";
 
-    echo ($query . "<br/>");
+    //echo ($query . "<br/>");
     
     if(mysql_query($query,$conexao)){
 

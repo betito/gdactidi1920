@@ -91,7 +91,7 @@ if(mysql_query($query,$conexao)){
           
         </strong>
         <div style="float: right; margin-right: 40px;">
-            <a class="link" href="painelrh.html" style="text-transform: uppercase; color: red; text-shadow: 1px 1px 3px rgba(0,0,0,.3);">Voltar</a>
+            <a class="link" href="painelrh.php" style="text-transform: uppercase; color: red; text-shadow: 1px 1px 3px rgba(0,0,0,.3);">Voltar</a>
         </div>
     </footer>
 </div>
