@@ -416,22 +416,23 @@ $perc = $row["perc"];
 
             </table>
             <BR><BR>
-                <table border="1" style="text-align:center;">
-                  <tr>
-                 <td style="font-size: 12pt";> IDI <= 25%</td>
-                 <td style="font-size: 12pt";> 25%< IDI <= 50% </td>
-                 <td style="font-size: 12pt";> 50%< IDI <= 75% </td>
-                 <td style="font-size: 12pt";> 75%< IDI <= 100% </td>
+            <p>
+            <table border="1">
+                 <tr>
+                 <td> IDI <= 25%</td>
+                 <td> 25% < IDI <= 50% </td>
+                 <td> 50% < IDI <= 75% </td>
+                 <td> 75% < IDI <= 100% </td>
                  </tr>
                  
                  <tr>
-                 <td style="font-size: 12pt; text-align:center;"> 8 pts </td>
-                 <td style="font-size: 12pt; text-align:center;"> 12 pts </td>
-                 <td style="font-size: 12pt; text-align:center;"> 16 pts </td>
-                 <td style="font-size: 12pt; text-align:center;"> 20 pts </td>
+                 <td><center> 3 pts</center> </td>
+                 <td><center> 7 pts </center></td>
+                 <td><center> 11 pts</center> </td>
+                 <td><center> 15 pts </center></td>
                  </tr>
 
-                </table></p>
+                <table></p>
 
             <BR><BR>
         </center>

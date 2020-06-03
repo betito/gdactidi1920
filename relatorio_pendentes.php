@@ -272,7 +272,7 @@ $conexao = connect();
                     // validacao dos pares
 
                     $strSQL4 = "SELECT * from avaliado where sigla_org like '".$res["sigla"]."' and email not like '".$res2["email"]
-                    . "' and grupo like '".$res2["grupo"]. "'";
+                    . "' and grupo like '".$res2["grupo"]. "'  and Situacao not like 'impedido' ";
 
                     $rs4 = mysql_query($strSQL4, $conexao);
                     
@@ -299,7 +299,7 @@ $conexao = connect();
                     }
 
                     $strSQL5 = "SELECT * from avaliacao where sigla like '".$res["sigla"]."' and email like '".$res2["email"]
-                    . "' and opcao like '%pares%'  order by nome";
+                    . "' and opcao like '%pares%' order by nome";
                 
                     // echo ($strSQL5."<br/>");
                     $rs5 = mysql_query($strSQL5, $conexao);
