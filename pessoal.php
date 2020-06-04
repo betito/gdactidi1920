@@ -78,7 +78,7 @@ if (($dateTodayBR >= $dateStart) && ($dateTodayBR <= $dateEnd)) {
    $valid = FALSE;
 }
 
-$valid = FALSE; // comenta essa linha p funcionar tudo.
+//$valid = FALSE; // comenta essa linha p funcionar tudo.
 if($valid){
 ?>
     <center  style="background-color:yellow; padding:  10px;">

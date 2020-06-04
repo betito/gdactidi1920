@@ -95,21 +95,23 @@ $periodo = date('Y');
 
 if(!$conexao) die ("Erro de conex&atilde;o com localhost, o seguinte erro ocorreu -> ".mysql_error());
 
-mysql_set_charset('UTF8', $conexao);
 
-$strSQL = "SELECT * FROM avaliacao where nome = '$nome' and nomeaval = '$nome1'";
+$strSQL = "SELECT * FROM avaliacao where nome like '$nome' and nomeaval like '$nome1'";
 $rs = mysql_query($strSQL, $conexao);
 $row = mysql_fetch_array($rs);
 
 $num_rows = mysql_num_rows($rs);
 
-$strSQL1 = "SELECT * FROM avaliacao where nomeaval = '$nome1'";
+$strSQL1 = "SELECT * FROM avaliacao where nomeaval like '$nome1'";
 $rs1 = mysql_query($strSQL1, $conexao);
 $row1= mysql_fetch_array($rs1);
 $num_rows1 = mysql_num_rows($rs1);
 
+echo ("SQL1: " . $strSQL1);
+var_dump($row1);
+var_dump($num_rows1);
 
-if (cmpIgual($opcao, $autoaval) and $num_rows1 < $tcont) {
+if ((cmpIgual($opcao, $autoaval) == TRUE) and ($num_rows1 < $tcont)) {
    echo "<center><h2><font color = 'red'>ATEN&Ccedil;&Atilde;O!</font><br><br> <br>N&atilde;o ser&aacute; poss&iacute;vel fazer sua autoavalia&ccedil;&atilde;o, enquanto todos os seus <strong>pares</strong> n&atilde;o forem avaliados,<br> por favor retorne e termine  seu processo de Avalia&ccedil;&atilde;o!</h2></center><br><br>";
 }else {
 
