@@ -183,7 +183,7 @@ if(!$valid){
                 $subord = $restmp['subordinacao'];
 
                 $strquery = "SELECT * from avaliado where sigla_org like '".$subord."' and Situacao like 'ativo' and  tipo like 'chefia%'";
-                // echo("linha 1: ".$strquery."<br/>");
+                //echo("linha 1: ".$strquery."<br/>");
                 $rstmp = mysql_query($strquery, $conexao);
                 $num_rowstmp = mysql_num_rows($rstmp);
     
@@ -272,8 +272,8 @@ if(!$valid){
                 array_push($chefiaavaliou, $res5["email"]);
             }
             
-            // var_dump($servidorfoiavaliado);
-            // echo ("<br/>");
+            //var_dump($servidorfoiavaliado);
+            //echo ("<br/>");
             
             $strquery = "SELECT * from avaliacao where email like '".$email
             . "' order by nome";
@@ -307,11 +307,14 @@ if(!$valid){
 
             $rs4 = mysql_query($strquery, $conexao);
 
-            // echo ("NAO CHEFE :: ".$strquery."<br/>");
+            echo ("NAO CHEFE :: ".$strquery."<br/>");
 
             $emailpares = array();
             while ($res4 = mysql_fetch_assoc($rs4)) {
-                array_push($emailpares, $res4["email"]);
+
+                if (cmpIgual($res4["tipo"], $chefimed) == FALSE && cmpIgual($res4["tipo"], $chefimedesp)==FALSE) { // caso seja chefe
+                    array_push($emailpares, $res4["email"]);
+                }
             }
 
             // var_dump($emailpares);
@@ -461,7 +464,7 @@ if(!$valid){
                     <?php
 
                     $tmp = new Avaliado();
-                        $tmp->retrieveFromDBByAttr("email", $emailpares[$i]); ?>
+                    $tmp->retrieveFromDBByAttr("email", $emailpares[$i]); ?>
                     <td style="text-align: left;">
                     <?php
                     echo(getFirstName($tmp->getField("nome"))); ?>
@@ -989,7 +992,7 @@ if(!$valid){
 
 
 
-     if (!cmpIgual($tipo, $chefimed)) {
+     if (cmpIgual($tipo, $chefimed) == FALSE) {
       
       $cont = 1;
 
@@ -1006,7 +1009,11 @@ if(!$valid){
         while($row3 = mysql_fetch_assoc($rs3)) {
             $no1 = $row3["nome"];
             
-            if ($row3["sigla_org"] == $sigla and $row3["grupo"]== $grupo and cmpIgual($row3["nome"], $nome)==FALSE) {
+            //if ($row3["sigla_org"] == $sigla and $row3["grupo"]== $grupo and cmpIgual($row3["nome"], $nome)==FALSE) {
+              if ((cmpIgual($row3["sigla_org"],$sigla) == TRUE) and 
+              (cmpIgual($row3["grupo"], $grupo) == TRUE) and 
+              (cmpIgual($row3["nome"], $nome)==FALSE) and
+              (cmpIgual($row3["tipo"], $chefimed) == FALSE)) {
                 echo '<span class="topic">' .$no1. '</span><br>';
                 $cont = $cont + 1;
             }   
@@ -1062,8 +1069,8 @@ if(!$valid){
         
         }else{
 
-            echo ("### $sigla <br/>");
-            echo ("###2 [$siglasubord] <br/>");
+            //echo ("### $sigla <br/>");
+            //echo ("###2 [$siglasubord] <br/>");
 
             $strSQL5 = "SELECT * FROM avaliado where lower(Situacao) not like 'impedido' order by nome asc";
             $rs2 = mysql_query($strSQL5, $conexao);
@@ -1074,7 +1081,7 @@ if(!$valid){
 
             }
 
-            echo ("# debug3<br/> $strSQL7  <br/>");
+            //echo ("# debug3<br/> $strSQL7  <br/>");
             $rs7 = mysql_query($strSQL7, $conexao);
 
             while($row2 = mysql_fetch_assoc($rs2)) {
@@ -1085,7 +1092,7 @@ if(!$valid){
          
                     if (cmpIgual($row2["sigla_org"],$sigla) and cmpIgual($row2["grupo"], $grupo)) {
                         echo '<option>'.$row2["nome"].'</option>';
-                        echo ("> ".$row2["nome"]);
+                        echo ("".$row2["nome"]);
                     }
                 }
 
@@ -1096,10 +1103,10 @@ if(!$valid){
                 }
 
             }
-            echo ("NUM ROW :: ".mysql_num_rows($rs7)."\n");
+            //echo ("NUM ROW :: ".mysql_num_rows($rs7)."\n");
             $rs7 = mysql_query($strSQL7, $conexao);
             if (mysql_num_rows($rs7) == 1){
-                echo ("# debug4<br/>");
+                //echo ("# debug4<br/>");
                 $row7 = mysql_fetch_assoc($rs7);
                 echo '<option>' .$row7["nome"]. '</option><br>\n';
             }
