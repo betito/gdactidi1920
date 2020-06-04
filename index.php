@@ -53,9 +53,20 @@ $ciclo= $row["ciclo"];
         <h2 class="center" style="text-transform: uppercase;">Gratifica&ccedil;&atilde;o de
             Desempenho de Atividade de Ciência e Tecnologia - &Iacute;ndice de Desempenho Individual (IDI).</h2>
 
+        
+        <?php
+            $str1 = "select (select count(siape) from avaliacao where siapeaval like siape) "
+                . " /(select count(*) from avaliado where Situacao not like 'impedido') * 100 as total";
 
+            $conn = connect();
+            $res1 = mysql_query ($str1, $conn);
+            $fetch = mysql_fetch_assoc ($res1);
+            mysql_close ($conn);
+        ?>
+        
+        
         <hr style="width: 600px; margin: auto; display: block;" color="#0c3068" size="2" noshade="noshade"/><br>
-        <center><strong>Este Sistema s&oacute; apresenta perfeita efici&ecirc;ncia com o Google Chrome ou Mozilla Firefox</font></strong></center><br>
+        <center><font color="red">TOTAL DE AVALIA&Ccedil;&Otilde;ES FINALIZADAS AT&Eacute; AGORA: ~ <strong><?=(int)$fetch["total"];?>%<br/></font></strong></center><br>
         <hr style="width: 600px; margin: auto; display: block;" color="#0c3068" size="2" noshade="noshade"/><br>
 
         <center> <strong><font color="red">Ciclo de Avalia&ccedil;&atilde;o: </font> <?php echo $dataentc; ?> a <?php echo $datafech; ?></strong></center>
