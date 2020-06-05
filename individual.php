@@ -708,7 +708,10 @@ if(!$valid){
 
                 $emailpares = array();
                 while ($res4 = mysql_fetch_assoc($rs4)) {
-                    array_push($emailpares, $res4["email"]);
+
+                    if(cmpIgual($res4["email"], $chefeemail) == FALSE){
+                        array_push($emailpares, $res4["email"]);
+                    }
                 }
 
                 // var_dump($emailpares);
@@ -766,7 +769,10 @@ if(!$valid){
 
                 $emailpares = array();
                 while ($res4 = mysql_fetch_assoc($rs4)) {
-                    array_push($emailpares, $res4["email"]);
+                    //echo ($res4["email"]);
+                    if(cmpIgual($res4["email"], $chefeemail) == FALSE){
+                        array_push($emailpares, $res4["email"]);
+                    }
                 }
 
                 // var_dump($emailpares);
