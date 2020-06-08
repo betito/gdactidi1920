@@ -86,18 +86,18 @@ $ciclo= $row["ciclo"];
 
 
         
-    <ul id="alerta" class="center">
+    <ul id="alerta" style="text-align: center; width:100%;">
         
-         <li>
+         <!--<li>
              <a href="documentos/PO_ON 005_2013.pdf" target="_blank">Portaria ON nº 005/2013</a>
-         </li>
-        <li>
+         </li>-->
+        <li style="display:inline-block;">
             <a href="documentos/Passo_Passo_IDI_VERSAO_INPA.pdf" target="_blank">Passo a Passo - SERVIDOR. VERS&Atilde;O INPA</a>
         </li>            
-        <li>
+        <li style="display:inline-block;">
             <a href="documentos/Passo_a_Passo2.pdf" target="_blank">Passo a Passo - CHEFIA IMEDIATA</a>
         </li>
-        <li>
+        <li style="display:inline-block;">
             <a href="../gdact1819/docs/PASSO-A-PASSO-PARA-O-RECURSO.pdf" target="_blank">Passo a Passo - RECURSO</a>
         </li>
     </ul>
