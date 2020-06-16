@@ -125,6 +125,7 @@ $row = mysql_fetch_array($rs);
 $dateStart = $row["dateavalstart"];
 $dateEnd = $row["dateavalend"];
 $dateTodayBR = new DateTime();
+$dateTodayBR->setTime(0,0);
 $dateEnd = new DateTime(prepareDate($dateEnd));
 $dateStart = new DateTime(prepareDate($dateStart));
 // $dateStart = '14/08/2019';
@@ -134,8 +135,12 @@ if (($dateTodayBR >= $dateStart) && ($dateTodayBR <= $dateEnd)) {
    $valid = TRUE;
 }
 
+var_dump($dateStart);
+var_dump($dateEnd);
+var_dump($dateTodayBR);
 //echo ("START: $dateStart<br/>");
 //echo ("END: $dateEnd<br/>");
+//echo ("TODAY: $dateTodayBR<br/>");
 //$valid = FALSE; // gatilho pro treinamento.
 //$valid = TRUE;
 if(!$valid){
