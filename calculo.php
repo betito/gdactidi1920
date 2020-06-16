@@ -354,7 +354,7 @@ Observa&ccedil;&atilde;o sobre a Pontua&ccedil;&atilde;o: <br><br><strong><em><p
                         4. Comprometimento com o trabalho: envolvimento com as atividades pelas quais &eacute; respons&aacute;vel no sentido de facilitar e contribuir efetivamente para a resolu&ccedil;&atilde;o de problemas e para o alcance das metas institucionais;
                     </td>
                     <td>
-                        <strong>a)</strong> Reconhece o seu papel para o cumprimento da miss&atilde;o do ON
+                        <strong>a)</strong> Reconhece o seu papel para o cumprimento da miss&atilde;o do INPA
                     </td>
                      <td class="nota" colspan="5"><center><?php echo $d1; ?><br> Ponto(s)</center><input class="caixa" type="text" name="d1" id="d1" value="<?php echo $d1; ?>" style="display:none"/></td>
                 </tr>
