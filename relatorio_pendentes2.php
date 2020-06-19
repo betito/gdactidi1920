@@ -87,6 +87,7 @@ $conexao = connect();
     </tr>
 <?php
     while ($res = mysql_fetch_assoc($rs)) {
+        $total_reg += (int) $res["ctotal"];
     
 ?>
     <tr>
@@ -96,6 +97,10 @@ $conexao = connect();
  <?php
     }
 ?>
+    <tr>
+        <td><center><br/><b>TOTAL</b></center><br/></td>
+        <td><center><br/><b><?=$total_reg; ?></b></center><br/></td>
+    </tr>
 </table>
 
 

@@ -41,7 +41,7 @@ $conexao = connect();
 
     <div class="conteudo">
 
-        <h1 class="nome" style="width: 325px;">Relat&oacute;rio GDACT</h1>
+        <h1 class="nome" style="width: 325px;">Relatório GDACT</h1>
 
        
                  <h2 class="center" style="text-transform: uppercase;">Relat&oacute;rio de Pendentes - GDACT- IDI</h2>
@@ -137,15 +137,13 @@ $conexao = connect();
 
                     // pegar se a chehfia fez avaliacao do servidor
 
-                    $strSQL3 = "select email from avaliado where sigla_org like "
+		    $strSQL3 = "select email from avaliado where sigla_org like "
                         . " (select subordinacao from avaliado where email like "
                         . " '".$res2["email"]."' and (sigla_org like '".$res2["sigla_org"]."' or "
                         ." subordinacao like '".$res["sigla_org"]."') ) "
                         . " and tipo like 'chefia%'";
 
-                    if (cmpIgual($res2["email"], "pmlag@inpa.gov.br") == TRUE){
-                        echo ($strSQL3);
-                    }
+                    // echo ($strSQL3);
                     $rs3 = mysql_query($strSQL3, $conexao);
                     $num_rows3 = mysql_num_rows($rs3);
 
@@ -175,9 +173,7 @@ $conexao = connect();
                     $strSQL3 = "SELECT * from avaliacao where emailaval like '".$chefeemail
                     . "' and email like '".$emaildasubordinacao. "' and opcao like 'chefia%'";
 
-                    if (cmpIgual($chefeemail, "pmlag@inpa.gov.br") == TRUE){
-                        echo ("CHEFE AVALIOU SEU CHEFE :: <br/>$strSQL3");
-                    }
+                    // echo ($strSQL3);
                     $rs3 = mysql_query($strSQL3, $conexao);
                     $num_rows3 = mysql_num_rows($rs3);
 
@@ -190,7 +186,7 @@ $conexao = connect();
                     // validacao dos pares
 
                     $strSQL4 = "SELECT * from avaliado where sigla_org like '".$res["sigla"]."' and email not like '".$res2["email"]
-                    . "' and grupo like '".$res2["grupo"]. "'";
+                    . "' and grupo like '".$res2["grupo"]. "' and Situacao not like 'impedido'";
 
                     $rs4 = mysql_query($strSQL4, $conexao);
 
@@ -232,8 +228,6 @@ $conexao = connect();
 
                 }else{ // nao eh chefia
 
-                    
-
                     // pegar se a chehfia fez avaliacao do servidor
                     $strSQL3 = "SELECT * from avaliacao where emailaval like '".$chefeemail
                         . "' and email like '".$res2["email"]. "' and opcao like 'chefia%'";
@@ -260,7 +254,7 @@ $conexao = connect();
                     if ($num_rows4 == 1) {
                         $res4 = mysql_fetch_assoc($rs4);
                         $avaliouchefe = true;
-            
+                    }
 
                     // pegar se servidor fez a autoavaliacao
                     $strSQL4 = "SELECT * from avaliacao where email like '".$res2["email"]
@@ -279,7 +273,7 @@ $conexao = connect();
                     // validacao dos pares
 
                     $strSQL4 = "SELECT * from avaliado where sigla_org like '".$res["sigla"]."' and email not like '".$res2["email"]
-                    . "' and grupo like '".$res2["grupo"]. "'  and Situacao not like 'impedido' ";
+                    . "' and grupo like '".$res2["grupo"]. "' and Situacao not like 'impedido'";
 
                     $rs4 = mysql_query($strSQL4, $conexao);
                     
@@ -306,7 +300,7 @@ $conexao = connect();
                     }
 
                     $strSQL5 = "SELECT * from avaliacao where sigla like '".$res["sigla"]."' and email like '".$res2["email"]
-                    . "' and opcao like '%pares%' order by nome";
+                    . "' and opcao like '%pares%'  order by nome";
                 
                     // echo ($strSQL5."<br/>");
                     $rs5 = mysql_query($strSQL5, $conexao);
