@@ -36,14 +36,19 @@ $conexao = connect();
         <br>
 
                <table border="0" align="center" width="88%">  
-               <tr><td><center><a href="lista2.php"><img src="img/dado.png" border="0" width="40%"><br></a><br>Dados de Servidores</center></td>          
-               <td><center><a href="periodo.php"><img src="img/alterar.png" border="0" width="40%"><br></a><br>Modifica&ccedil;&atilde;o Per&iacute;odos</center></td>
-               <td><center> <a href="tela_grupos3.php"><img src="img/visualizar.png" border="0" width="45%"><br></a>Visualiza&ccedil;&atilde;o dos Grupos</center></td>
-               <td><center> <a href="pesq_aval.php"><img src="img/pesquisa.jpg" border="0" width="45%"><br></a>Avalia&ccedil;&atilde;o Individual</center></td>
-              <!-- <td><center> <a href="relatorio.php"><img src="img/relatorio.jpg" border="0" width="45%"><br></a>Relatório Geral</center></td>-->
-              <!--<td><center> <a href="relatoriofinal.php"><img src="img/relatorio.jpg" border="0" width="45%"><br></a>Relat&oacute;rio Geral</center></td>-->
-               <td><center><a href="consolidacao.php"><img src="img/tabela.jpg" border="0" width="75"><br></a>Lista das Consolida&ccedil;&otilde;es</center></td>
-               <td><center><a href="relatorio_pendentes.php"><img src="img/check.png" border="0" width="75"><br></a>Pend&ecirc;ncias</center></td>
+                <tr>
+                    <td><center><a href="lista2.php"><img src="img/dado.png" border="0" width="40%"><br></a><br>Dados de Servidores</center></td>          
+                    <td><center><a href="periodo.php"><img src="img/alterar.png" border="0" width="40%"><br></a><br>Modifica&ccedil;&atilde;o Per&iacute;odos</center></td>
+                    <td><center> <a href="tela_grupos3.php"><img src="img/visualizar.png" border="0" width="45%"><br></a>Visualiza&ccedil;&atilde;o dos Grupos</center></td>
+                    <td><center> <a href="pesq_aval.php"><img src="img/pesquisa.jpg" border="0" width="45%"><br></a>Avalia&ccedil;&atilde;o Individual</center></td>
+                    <!-- <td><center> <a href="relatorio.php"><img src="img/relatorio.jpg" border="0" width="45%"><br></a>Relatório Geral</center></td>-->
+                    <!--<td><center> <a href="relatoriofinal.php"><img src="img/relatorio.jpg" border="0" width="45%"><br></a>Relat&oacute;rio Geral</center></td>-->
+                    <td><center><a href="consolidacao.php"><img src="img/tabela.jpg" border="0" width="75"><br></a>Lista das Consolida&ccedil;&otilde;es</center></td>
+                </tr>
+                <tr>
+                    <td><center><a href="relatorio_pendentes.php"><img src="img/check.png" border="0" width="75"><br></a>Pend&ecirc;ncias</center></td>
+                    <td><center><a href="relatorio_pendentes2.php"><img src="img/report2.png" border="0" width="75"><br></a>Os Pendentes</center></td>
+               </tr>
                </table>
 
             
