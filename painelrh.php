@@ -48,6 +48,7 @@ $conexao = connect();
                 <tr>
                     <td><center><a href="relatorio_pendentes.php"><img src="img/check.png" border="0" width="75"><br></a>Pend&ecirc;ncias</center></td>
                     <td><center><a href="relatorio_pendentes2.php"><img src="img/report2.png" border="0" width="75"><br></a>Os Pendentes</center></td>
+                    <td><center><a href="relatorio_pendentes3.php"><img src="img/report3.png" border="0" width="75"><br></a>Chefia Pendentes</center></td>
                </tr>
                </table>
 
