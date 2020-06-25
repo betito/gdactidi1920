@@ -770,7 +770,7 @@ if(!$valid){
 
                 $rs4 = mysql_query($strquery, $conexao);
 
-                // echo ("NAO CHEFE :: ".$strquery."<br/>");
+                echo ("NAO CHEFE :: ".$strquery."<br/>");
 
                 $emailpares = array();
                 while ($res4 = mysql_fetch_assoc($rs4)) {

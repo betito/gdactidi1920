@@ -44,7 +44,7 @@ $conexao = connect();
         <h1 class="nome" style="width: 325px;">Relat&oacute;rio GDACT</h1>
 
        
-                 <h2 class="center" style="text-transform: uppercase;">Relat&oacute;rio de Pendentes - GDACT- IDI</h2>
+                 <h2 class="center" style="text-transform: uppercase;">Lista de servidores <font color="red">sem</font> avalia&ccedil;&atilde;o<br/> da Chefia Imediata - GDACT- IDI</h2>
                  
 
 
