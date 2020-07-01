@@ -49,10 +49,8 @@ $conexao = connect();
 
         <hr style="width: 300px; margin: auto; display: block;" color="#0c3068" size="2" noshade="noshade"/>
 
-<blockquote style="text-align:  center; font-style: italic;"><strong>Lista das avaliações Fechadas</strong></blockquote>
 
-
-        
+        <br/><br/>       
 
        <center>
       <?php
@@ -62,7 +60,7 @@ $conexao = connect();
     $strSQL = "SELECT * FROM avaliacao where opcao like '$autoaval' and sigla like '$unid' order by nomeaval asc";
     $strSQL1 = "SELECT * FROM avaliado where sigla_org like '$unid' and lower(Situacao) like 'ativo'";
     $strSQL2 = "SELECT * FROM avaliado av where av.sigla_org like '$unid' and lower(Situacao) like 'ativo' and "
-        . " nome not in (select nome from avaliacao where sigla like 'cotin' and opcao like 'autoavaliacao')";
+        . " nome not in (select nome from avaliacao where opcao like 'autoavaliacao')";
 
 $rs = mysql_query($strSQL, $conexao);
 $rs1 = mysql_query($strSQL1, $conexao);
@@ -71,8 +69,44 @@ $rs2 = mysql_query($strSQL2, $conexao);
 $num_rows = mysql_num_rows($rs);
 $num_rows1 = mysql_num_rows($rs1);
 $dif = $num_rows1 - $num_rows;
-    
-    
+
+if($dif ==0){
+    echo "<FONT COLOR='RED'><STRONG>AVALIA&Ccedil;&Atilde;O DESTA UNIDADE J&Aacute; ENCERRADA!!</STRONG></FONT>";
+}else{
+    echo ' FALTAM AINDA  <font color="red"><strong>' .$dif. '  </strong></font>PARA FECHAR A AVALIA&Ccedil;&Atilde;O DA  <font color="red"><strong>' .$unid. '</strong></font>';}
+?>     
+
+<br/><br/>
+
+<table class="collapse">
+    <?php
+    while($row = mysql_fetch_assoc($rs2)) {
+    ?>
+    <tr class="collapse">
+        <td class="collapse pcell">
+            <?=$row["nome"];?>
+        </td>
+        <td class="collapse pcell">
+            <?=$row["cargo"];?>
+        </td>
+    </tr>
+    <?php
+    }
+    ?>
+
+
+</table>
+      
+
+
+<blockquote style="text-align:  center; font-style: italic;"><strong>Lista das avalia&ccedil;&otilde;es Fechadas</strong></blockquote>
+
+
+        <br>
+
+
+
+<?php    
 echo '<table border="1" width="70%">';
  
 echo '<tr>';
@@ -103,37 +137,7 @@ echo '<td><center>'.$row["sigla"].'</center></td>';
         
 }
 echo '</table><br><br><br>';
-
-if($dif ==0){
-    echo "<FONT COLOR='RED'><STRONG>AVALIA&Ccedil;&Atilde;O DESTA UNIDADE J&Aacute; ENCERRADA!!</STRONG></FONT>";
-}else{
-    echo ' FALTAM AINDA  <font color="red"><strong>' .$dif. '  </strong></font>PARA FECHAR A AVALIA&Ccedil;&Atilde;O DA  <font color="red"><strong>' .$unid. '</strong></font>';}
-?>     
-
-<br/><br/>
-<table class="collapse">
-    <?php
-    while($row = mysql_fetch_assoc($rs2)) {
-    ?>
-    <tr class="collapse">
-        <td class="collapse pcell">
-            <?=$row["nome"];?>
-        </td>
-        <td class="collapse pcell">
-            <?=$row["cargo"];?>
-        </td>
-    </tr>
-    <?php
-    }
-    ?>
-
-
-</table>
-      
-
-
-
-        <br>
+?>
 
 
         
