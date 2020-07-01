@@ -1,8 +1,17 @@
 select *
 from avaliacao
 where 
-(email like 'fran.campos%' or
-emailaval like 'fran.campos%')
+(email like 'lucas.castanhola%' or
+emailaval like 'lucas.castanhola%')
+
+
+
+select *
+from avaliado
+where
+grupo = 8 and 
+sigla_org like 'copes'
+
 
 
 select count(*)
@@ -74,3 +83,11 @@ where opcao like 'chefia%imediata'
 ) 
 group by av.sigla_org
 order by tcount desc
+
+
+
+
+#verificar as avaliacoes ppelo nome
+select * from avaliacao
+where nome like '%waldemar%'
+or nomeaval like '%waldemar%' 
