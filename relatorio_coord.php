@@ -57,7 +57,7 @@ $conexao = connect();
 
       $unid = $_GET["lin2"];
       
-    $strSQL = "SELECT * FROM avaliacao where opcao like '$autoaval' and sigla like '$unid' order by nomeaval asc";
+    $strSQL = "SELECT * FROM avaliacao where opcao like '$autoaval' and (sigla like '$unid' order by nomeaval asc";
     $strSQL1 = "SELECT * FROM avaliado where sigla_org like '$unid' and lower(Situacao) like 'ativo'";
     $strSQL2 = "SELECT * FROM avaliado av where av.sigla_org like '$unid' and lower(Situacao) like 'ativo' and "
         . " nome not in (select nome from avaliacao where opcao like 'autoavaliacao')";
