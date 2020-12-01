@@ -26,6 +26,7 @@ $nm = $_GET['lin'];
 // echo ("VAI :: [".$nm."]<br/>");
  //mysql_set_charset('UTF8', $conexao);
 
+ 
  $strSQL = "SELECT * FROM avaliacao WHERE nome like '$nm' order by nomeaval asc";
 //  echo ("QWE :: [".$strSQL."]<br/>");
  $strSQL1 = "SELECT * FROM periodo";
@@ -48,8 +49,8 @@ $rs6 = mysql_query($strSQL, $conexao);
  $row6 = mysql_fetch_array($rs2);
  $rs8 = mysql_query($strSQL, $conexao);
  $row8 = mysql_fetch_array($rs2);
-
-
+ 
+ 
  $rs7 = mysql_query($strSQL1, $conexao);
  $row7 = mysql_fetch_array($rs7);
  $num7 = mysql_num_rows($rs7);
@@ -67,6 +68,7 @@ $siape = $rowx["siape"];
 $cargo = $rowx["cargo"];
 $ramal = $rowx["ramal"];
 $email = $rowx["email"];
+$emailaval = $rowx["email"];
 $nomeaval = $row["nomeaval"];
 $opcao = $row["opcao"];
 $perc = $row["perc"];
@@ -77,6 +79,14 @@ $dataent = $row7["dataent"];
 $datafec = $row7["datafec"];
 $ciclo= $row7["ciclo"];
 // echo ("ZXC :: [".$nome."]<br/>");
+
+
+$strSQLnormal = "SELECT * FROM avaliado WHERE nome like '$nm'";
+$rsnormal = mysql_query($strSQLnormal, $conexao);
+$rownormal = mysql_fetch_array($rsnormal);
+$strSQLchefe = "SELECT * FROM avaliado WHERE tipo like 'chefia%' and sigla_org like '".$rownormal['subordinacao']."'";
+$rschefe = mysql_query($strSQLchefe, $conexao);
+$rowchefe = mysql_fetch_array($rschefe);
 
 ?>
 
@@ -169,8 +179,33 @@ $ciclo= $row7["ciclo"];
                 </tr>
                 <tr>
                    
-                    <td><center><strong><label><?php while($row5 = mysql_fetch_assoc($rs5)){ $opcao2 = $row5["opcao"];  if ($opcao2 == $chefimed or $opcao2 == $chefimedesp) { $perc3 = $row5["perc"]; echo $perc3;}} ?>%</center></strong></td>
-                    <td colspan="3"><center><strong><label><?php while($row8 = mysql_fetch_assoc($rs8)){ $opcao1 = $row8["opcao"]; $perc = $row8["perc"]; if ($opcao1 == $chefimed or $opcao1 == $chefimedesp) {$ponderado2 = ($perc3*0.60); echo round($ponderado2,1);}}?>%</center></strong></td>
+                    <td><center><strong><label>
+                        <?php 
+                            $perc3 = 0; 
+                            //var_dump($rowchefe);
+                            while($row5 = mysql_fetch_assoc($rs5)){ 
+                                $opcao2 = $row5["opcao"];  
+                                if ($opcao2 == $chefimed or $opcao2 == $chefimedesp) { 
+                                    //var_dump($row5);
+                                    if(cmpIgual($row5["nomeaval"],$rowchefe["nome"])){
+                                        $perc3 = $row5["perc"]; 
+                              //          echo ("ta aqui 1....");
+                                        echo $perc3;
+                                    }
+                                }
+                            } ?>%</center></strong></td>
+                    <td colspan="3"><center><strong><label>
+                    <?php 
+                        while($row8 = mysql_fetch_assoc($rs8)){ 
+                            $opcao1 = $row8["opcao"]; 
+                            $perc = $row8["perc"]; 
+                            if ($opcao1 == $chefimed or $opcao1 == $chefimedesp) {
+                                if(cmpIgual($row8["nomeaval"],$rowchefe["nome"])){
+                                    $ponderado2 = ($perc3*0.60); 
+                                    echo round($ponderado2,1);
+                                }
+                            }
+                        } ?>%</center></strong></td>
                     
                     
                 </tr>
